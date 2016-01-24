@@ -35,19 +35,19 @@ public class Client extends Observable implements Model {
 
 	@Override
 	public void reciveDataFromServer() throws Exception{
-       in = new ObjectInputStream(theServer.getInputStream());
-       dataFromServer = in.readObject();
-       if (dataFromServer instanceof Maze3d) {
-         notifyObservers((Maze3d)dataFromServer);
-	   }
-       if (dataFromServer instanceof Solution<?>) {
-           notifyObservers((Solution<Position>)dataFromServer);
-  	   }
-       if (dataFromServer instanceof Properties) {
-           notifyObservers((Properties)dataFromServer);
-  	   }
-	   setChanged();
-	   notifyObservers(dataFromServer);
+        in = new ObjectInputStream(theServer.getInputStream());
+        dataFromServer = in.readObject();
+        if (dataFromServer instanceof Maze3d) {
+          notifyObservers((Maze3d)dataFromServer);
+	    }
+        if (dataFromServer instanceof Solution<?>) {
+            notifyObservers((Solution<Position>)dataFromServer);
+  	    }
+        if (dataFromServer instanceof Properties) {
+            notifyObservers((Properties)dataFromServer);
+  	    }
+	    setChanged();
+	    notifyObservers(dataFromServer);
 	}
 
 	@Override
