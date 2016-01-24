@@ -54,38 +54,18 @@ import algorithms.maseGenerators.Position;
 import algorithms.search.Solution;
 
 public class Run {
-
+//////////////////////////////client
 	public static void main(String[] args) throws IOException 
 	{
-		
-		/*
-		PrintWriter out = null;
-		
-		try { 
-			out = new PrintWriter(new FileWriter("2.maz"));
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-		BufferedReader in = null;
-		try {
-			in = new BufferedReader(new FileReader("2.maz"));
-		} catch (FileNotFoundException e) {
-			
-			e.printStackTrace();
-		}*/
-		
         XMLDecoder xml = new XMLDecoder(new FileInputStream("properties.xml"));
         Properties properties = new Properties();
         properties = (Properties)xml.readObject();
-		//System.out.println(properties.getGenerateAlgorithm()+properties.getSolveAlgorithm()+properties.getThreadsRunning());
-		//m.saveToZipFile("mazeWithSolution.zip");
-		
+
 		Client m = null;
 		try {
 			m = new Client();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 
@@ -99,24 +79,6 @@ public class Run {
 		mw.addObserver(p);
 		mw.run();
 		
-		//m.saveToZipFile("omerzipfile.zip");
-		
-		////////////////////////////////////////////////////////////////
-		
-		
-		/*try {
-			HashMap<Maze3d, Solution<Position>> hmsp = (HashMap<Maze3d, Solution<Position>>)m.deserialize(b);
-			
-			System.out.println(hmsp.containsKey(m.getMOmer()));
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		////////////////////////////////////////////////////////////////
-		
-		//v.start();//start the project
 	}
 
 }
