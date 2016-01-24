@@ -28,7 +28,7 @@ public class MyClientHandler implements ClinetHandler{
 				String[] temp = line.split(" ");
                 p.getHashMap().get(temp[0]).doCommand(temp[1]);
                 //////////check for null pointer exeption
-                out.writeObject(result);
+                out.writeObject(result); 
 			}
 			
 			//out.println("good bye");

@@ -89,7 +89,7 @@ public class Presenter implements Observer
 	{
 		if(o == m)
 		{	
-           clienthendler.setResult(arg);
+           clienthendler.setResult(arg); 
 		/*
 			String temp[] = arg.toString().split(",") ;
 			
