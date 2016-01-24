@@ -54,33 +54,31 @@ import algorithms.maseGenerators.Position;
 import algorithms.search.Solution;
 
 public class Run {
-
+/////////////////////////////////////////////////server
 	public static void main(String[] args) throws IOException 
-	{
-			/*System.out.println("Server Side");
-			System.out.println("type \"close the server\" to stop it");
-			MyServer server=new MyServer(5400,new ASCIIArtClientHandler(),10);
-			server.start();
-			
-			BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
-			
-			while(!(in.readLine()).equals("close the server"));
-			server.close();	*/	
-		
+	{	
+		MyModel m = null;
+		try {
+			m = new MyModel();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Presenter p = new Presenter();
+        p.setM(m);
+		m.addObserver(p);
 			
         XMLDecoder xml = new XMLDecoder(new FileInputStream("properties.xml"));//////////change the properties file
         Properties properties = new Properties();
         properties = (Properties)xml.readObject();
-		//System.out.println(properties.getGenerateAlgorithm()+properties.getSolveAlgorithm()+properties.getThreadsRunning());
-		//m.saveToZipFile("mazeWithSolution.zip");
+
 		
     		System.out.println("Server Side");
     		System.out.println("type \"close the server\" to stop it");
-    		MyServer server= new MyServer(5400, new MyClientHandler(), 5);//change to properties 
+    		MyServer server= new MyServer(5400, new MyClientHandler(p), 5);//change to properties 
     		try {
 				server.start();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
     		
@@ -91,47 +89,10 @@ public class Run {
     		 try {
 				 server.close();
 			 } catch (Exception e1) {
-				 // TODO Auto-generated catch block
 				 e1.printStackTrace();
 			 }		
     		}
-    	
-        
-		MyModel m = null;
-		try {
-			m = new MyModel();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Presenter p = new Presenter();
-		
-		//MazeWindow mz=  new MazeWindow("maze",1000, 800);
-        p.setM(m);
-       // p.setV(mz);
-		m.addObserver(p);
-		
-		//mz.addObserver(p);
-		//mz.run();
-		
-		//m.saveToZipFile("omerzipfile.zip");
-		
-		////////////////////////////////////////////////////////////////
-		
-		
-		/*try {
-			HashMap<Maze3d, Solution<Position>> hmsp = (HashMap<Maze3d, Solution<Position>>)m.deserialize(b);
-			
-			System.out.println(hmsp.containsKey(m.getMOmer()));
-			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		////////////////////////////////////////////////////////////////
-		
-		//v.start();//start the project
+
 	}
 
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_65" class="java.beans.XMLDecoder">
+ <object class="presenter.Properties">
+  <void property="generateAlgorithm">
+   <string>Prim</string>
+  </void>
+  <void property="solveAlgorithm">
+   <string>bfs</string>
+  </void>
+  <void property="threadsRunning">
+   <int>2</int>
+  </void>
+ </object>
+</java>
