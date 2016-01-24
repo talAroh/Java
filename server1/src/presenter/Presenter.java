@@ -39,6 +39,8 @@ public class Presenter implements Observer
 	 */
 	HashMap<String, Command> hashMap;
 	
+	MyClientHandler clienthendler;
+	
 	/**
 	 * CTOR
 	 * Initialize the hash map 
@@ -87,9 +89,9 @@ public class Presenter implements Observer
 	{
 		if(o == m)
 		{	
-
-			
-			/*String temp[] = arg.toString().split(",") ;
+           clienthendler.setResult(arg);
+		/*
+			String temp[] = arg.toString().split(",") ;
 			
 			if(temp[1].equals(", maze ready"));
 			{			
@@ -103,7 +105,7 @@ public class Presenter implements Observer
 					e.printStackTrace();
 				}
 			}
-			*/
+			
 			
 			if(arg instanceof Maze3d)
 			{
@@ -135,7 +137,7 @@ public class Presenter implements Observer
 				try {
 					v.displaymessage(arg.toString());
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+					 TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 		    
@@ -143,10 +145,10 @@ public class Presenter implements Observer
 				try {
 					v.displaymessage((Properties)arg);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
+					 TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			
+			*/
 		}
 			
 		 if(o instanceof View)
